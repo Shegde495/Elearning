@@ -52,7 +52,6 @@ def check_otp(request):
         otps = request.POST.get("otp")
         s = OTP.objects.all().values("otp")
         value = s[0]["otp"]
-        print(value)
         if int(value) == int(otps):
             return redirect("home")
         else:
