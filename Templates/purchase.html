@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if request.user.is_superuser %}
+        {% if k %}
+            <h1>List of Students who purchased {{value}} course</h1>
+            <ul class="list-group">
+        {% for i in k %}
+            <li class="list-group-item">{{i.check_user}}</li>
+        {% endfor %}
+        {% else%}
+        <h1>No Students have purchased {{value}} course</h1>
+        {% endif %}
+    {% else %}
+    </ul>
+    <form method="POST"> 
+    {% csrf_token %}
+    <a href="{{request.META.HTTP_REFERER}}">Go back</a>
+    <h1> Do you want to Buy {{value.course_name}} course ? </h1>
+    <input class="btn btn-primary" type="submit" value="Buy">
+    </form>
+    {% endif %}
+</body>
+</html>

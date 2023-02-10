@@ -1,0 +1,17 @@
+{% load socialaccount %}
+
+<html>
+<head>
+    <title>Social Login</title>
+    {% providers_media_js %}
+</head>
+<body>
+    <h1>Social Login</h1>
+    {% comment %} <a href="{% provider_login_url 'google' %}" class="btn btn-danger">
+        <i class="fab fa-google"></i> Sign in with Google
+    </a> {% endcomment %}
+    <a href="{% url 'social:begin' 'google' %}?next={{ request.path }}" class="btn btn-google">
+        <i class="fa fa-google"></i> Sign in with Google
+    </a>
+</body>
+</html>

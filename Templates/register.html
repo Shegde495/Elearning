@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrationform</title>
+    <style>
+        .helptext{
+          visibility: hidden;
+        }  
+    </style>
+</head>
+<body>
+    <form method="POST" >
+    {% csrf_token %}
+    <h1>Register yourself</h1>
+    <label >Enter your First Name : </label>
+    <input type ="text" name="firstname" >
+    <br>
+    <br>
+    <label>Enter your Last Name : </label>
+    <input type ="text" name="lastname" >
+    <br>
+    <br>
+    <label >Enter your Email : </label>
+    <input type ="email" name="email" >
+    {{form.as_p}}
+    <br>
+    <br>
+    <input class="btn btn-primary" type="submit" name="Submit">
+    </form>
+</body>
+</html>
